@@ -1,9 +1,9 @@
-import React, { useRef, useState } from 'react'
-import { Avatar } from '@mui/material'
-import { Wrapper, Item, Button} from "./dropdown.style"
+import React, { useRef } from 'react'
+import * as S from "./style"
+import Item from "./Item"
 
+import { Avatar } from '@mui/material'
 // Icons
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import SettingsIcon from '@mui/icons-material/Settings';
 import HelpIcon from '@mui/icons-material/Help';
 import NightlightIcon from '@mui/icons-material/Nightlight';
@@ -11,7 +11,7 @@ import AnnouncementIcon from '@mui/icons-material/Announcement';
 import LogoutIcon from '@mui/icons-material/Logout';
 
 
-function DropDown({dropDownStatus,setDropDownStatus, AvatarRef }) {
+export function DropDown({dropDownStatus,setDropDownStatus, AvatarRef }) {
   
   const ref = useRef(null);
 
@@ -21,10 +21,11 @@ function DropDown({dropDownStatus,setDropDownStatus, AvatarRef }) {
      AvatarRef.current && !AvatarRef.current.contains(e.target)) {
       setDropDownStatus(false)
      }
-   })
+
+   });
   
   return (
-  <Wrapper className='dropdown' ref={ref}  dropDownStatus={dropDownStatus}>
+  <S.Wrapper className='dropdown' ref={ref}  dropDownStatus={dropDownStatus}>
     
     <div className='dropdown__header'>
         <div className='profile'>
@@ -32,55 +33,35 @@ function DropDown({dropDownStatus,setDropDownStatus, AvatarRef }) {
          <p>Mstafa Fakhir</p>
         </div>
          <hr />
-        <Button>See all profiles</Button>
+        <S.Button>See all profiles</S.Button>
     </div>
 
     <div className='dropdown__body'>
-        <Item>
-            <div className='main'>
-              <div className="icon">
-                <SettingsIcon />
-              </div>
-              <p>Settings & privacy</p>
-            </div>
-          <ArrowForwardIosIcon />
-        </Item>
 
-        <Item>
-            <div className='main'>
-              <div className="icon">
-                <HelpIcon />
-              </div>
-              <p>Help & privacy</p>
-            </div>
-          <ArrowForwardIosIcon />
-        </Item>
-        <Item>
-            <div className='main'>
-              <div className="icon">
-                <NightlightIcon />
-              </div>
-              <p>Display & accessibility</p>
-            </div>
-          <ArrowForwardIosIcon />
-        </Item>
+        <Item 
+        title="Settings & privacy"
+        Icon={SettingsIcon}
+        />
+        
+        <Item 
+        title="Help & suport"
+        Icon={HelpIcon}
+        />
 
-        <Item>
-            <div className='main'>
-              <div className="icon">
-                <AnnouncementIcon />
-              </div>
-              <p>Give & feedback</p>
-            </div>
-        </Item>
-        <Item>
-            <div className='main'>
-              <div className="icon">
-                <LogoutIcon />
-              </div>
-              <p>Log Out</p>
-            </div>
-        </Item>
+        <Item 
+        title="Display & accessibility"
+        Icon={NightlightIcon}
+        />
+
+        <Item 
+        title="Give feedback"
+        Icon={AnnouncementIcon}
+        />
+
+        <Item 
+        title="Log Out"
+        Icon={LogoutIcon}
+        />
 
         <div className='dropdown__footer'>
           <a href='#'>privacy &middot;</a> 
@@ -93,8 +74,6 @@ function DropDown({dropDownStatus,setDropDownStatus, AvatarRef }) {
         </div>
     </div>  
 
-  </Wrapper>
+  </S.Wrapper>
   )
 }
-
-export default DropDown

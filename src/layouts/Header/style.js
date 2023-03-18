@@ -5,6 +5,9 @@ height: 56px;
 padding: 0 1rem;
 background: white;
 box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+position: sticky;
+z-index: 100;
+top: 0;
 
 `
 export const Content = styled.div`

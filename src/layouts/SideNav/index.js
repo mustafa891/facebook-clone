@@ -4,8 +4,8 @@ import * as S from './style'
 
 // Icons
 import HomeIcon from '@mui/icons-material/Home';
-import VideogameAssetIcon from '@mui/icons-material/VideogameAsset';
 import AppsIcon from '@mui/icons-material/Apps';
+import VideogameAssetIcon from '@mui/icons-material/VideogameAsset';
 
 import { Avatar } from '@mui/material';
 
@@ -14,6 +14,8 @@ export default function index() {
   return (
     <S.SideBar>
 
+      <S.Wrapper>
+        
       {/* toptSide */}
       <S.topSide>
           <Item
@@ -76,6 +78,7 @@ export default function index() {
       />
 
       </S.bottomSide>
+      </S.Wrapper>
 
     </S.SideBar>
   )

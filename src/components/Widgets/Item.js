@@ -22,12 +22,11 @@ export default function Item  ({Icon, title, imgSrc, profileSrc,IconButton, acti
 
 const Wrapper = styled.div`
 display: flex;
-padding: 10px;
-cursor: pointer;
-margin-left: 10px; 
-border-radius: 6px;
 align-items: center;
-
+margin-right: 5px; 
+padding: 10px;
+border-radius: 6px;
+cursor: pointer;
 
 .MuiAvatar-circular  {
  width: 24px;
@@ -38,10 +37,6 @@ span {
     font-size: 14px;
     font-weight: 500;
     margin-left: 10px;
-
-    @media(max-width: 1131px) {
-        display: none;
-    }
 }
 
 &:hover {

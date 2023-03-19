@@ -1,4 +1,6 @@
 import React from 'react'
+import Feed from '../../components/Feed'
+import Widgets from '../../components/Widgets'
 import Header from '../../layouts/Header/'
 import SideNav from "../../layouts/SideNav/"
 import * as S from './style'
@@ -10,9 +12,8 @@ export default function Home() {
     
     <S.Container>
       <SideNav />
-        {/* SideNav */}
-        {/* Fedd --> store__reel --> story | message_sender */} 
-        {/* Widgets */}
+        <Feed /> {/* Fedd --> store__reel --> story | message_sender */} 
+        <Widgets />
     </S.Container>
     </>
   )

@@ -2,32 +2,28 @@ import styled from "styled-components"
 
 export default function Item  ({Icon, title, imgSrc, profileSrc,IconButton, active})  {
     return <Wrapper >
-    {active && <BorderLeft />}
-     
-     {Icon &&
-      <IconWrapper className={IconButton ? "iconBtn" : ""}>
-      <Icon src={profileSrc && profileSrc} />
-      </IconWrapper>
-     }
-     
-     {imgSrc && 
-     <img src={imgSrc} />
-     }
-     <span>{title}</span>
+        {active && <BorderLeft />}
+        
+        {Icon &&
+        <IconWrapper className={IconButton ? "iconBtn" : ""}>
+        <Icon src={profileSrc && profileSrc} />
+        </IconWrapper>
+        }
+        
+        {imgSrc && 
+        <img src={imgSrc} />
+        }
+        <span>{title}</span>
     </Wrapper> 
 }
-
-
-
 
 const Wrapper = styled.div`
 display: flex;
 padding: 10px;
 cursor: pointer;
-margin-left: 10px; 
+margin-left: 14px 10px; 
 border-radius: 6px;
 align-items: center;
-
 
 .MuiAvatar-circular  {
  width: 24px;

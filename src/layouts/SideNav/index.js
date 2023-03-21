@@ -1,16 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Item from './Item'
 import * as S from './style'
 
 // Icons
 import HomeIcon from '@mui/icons-material/Home';
 import AppsIcon from '@mui/icons-material/Apps';
-import VideogameAssetIcon from '@mui/icons-material/VideogameAsset';
 
 import { Avatar } from '@mui/material';
+import { useAuth } from '../../context/UserContext';
 
 
-export default function index() {
+export default function SideNav() {
+
+  const {user} = useAuth()
+
   return (
     <S.SideBar>
 
@@ -26,8 +29,8 @@ export default function index() {
 
           <Item
            Icon={Avatar}
-           profileSrc="https://scontent.xx.fbcdn.net/v/t39.30808-1/329520680_744463466953340_6607526300212552205_n.jpg?stp=cp0_dst-jpg_p50x50&_nc_cat=109&ccb=1-7&_nc_sid=c231e7&_nc_ohc=0-LmeHlySNIAX9KXENT&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=00_AfDgQXL4bnMiUtkBJr2Nk0-4_mQNYUYF3goU43fNZerKZw&oe=6419C67A"
-           title="Mstafa Fakhir"
+           profileSrc={user?.photoURL}
+           title={user?.displayName}
           />
 
       </S.topSide>

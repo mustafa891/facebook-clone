@@ -41,8 +41,6 @@ p {
   color: white;
   z-index: 10;
 }
-
-
 `
 
 const Overley = styled.div`
@@ -52,7 +50,6 @@ height: 100%;
 position:absolute;
 border-radius: 12px;
 background-image: linear-gradient(0deg,rgba(0,0,0,0.4),transparent);
-
 
 &:hover {
   background-image: linear-gradient(0deg,rgba(0,0,0,0.4),rgba(0,0,0,0.1));  

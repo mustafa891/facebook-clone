@@ -1,6 +1,5 @@
 import {DropDown} from "./DropDown";
 import Feed from "./Feed";
+import Widgets from "./Widgets/"
 
-
-export {DropDown}
-export default {Feed};
+export {DropDown, Feed, Widgets}

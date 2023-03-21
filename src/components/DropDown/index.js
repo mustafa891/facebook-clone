@@ -1,6 +1,7 @@
 import React, { useRef } from 'react'
 import * as S from "./style"
 import Item from "./Item"
+import { useNavigate } from 'react-router-dom';
 
 import { Avatar } from '@mui/material'
 // Icons
@@ -9,10 +10,12 @@ import HelpIcon from '@mui/icons-material/Help';
 import NightlightIcon from '@mui/icons-material/Nightlight';
 import AnnouncementIcon from '@mui/icons-material/Announcement';
 import LogoutIcon from '@mui/icons-material/Logout';
+import { useAuth } from '../../context/UserContext';
 
 
 export function DropDown({dropDownStatus,setDropDownStatus, AvatarRef }) {
-  
+
+  const {user, logOut} = useAuth()
   const ref = useRef(null);
 
   // close input when click outside of Component
@@ -21,7 +24,6 @@ export function DropDown({dropDownStatus,setDropDownStatus, AvatarRef }) {
      AvatarRef.current && !AvatarRef.current.contains(e.target)) {
       setDropDownStatus(false)
      }
-
    });
   
   return (
@@ -29,8 +31,8 @@ export function DropDown({dropDownStatus,setDropDownStatus, AvatarRef }) {
     
     <div className='dropdown__header'>
         <div className='profile'>
-        <Avatar className='avatar' src="https://scontent.fisu10-2.fna.fbcdn.net/v/t39.30808-1/329520680_744463466953340_6607526300212552205_n.jpg?stp=cp0_dst-jpg_p40x40&_nc_cat=109&ccb=1-7&_nc_sid=f67be1&_nc_ohc=0-LmeHlySNIAX8fYgTT&_nc_ht=scontent.fisu10-2.fna&oh=00_AfDZiyf8wZxb-DHwrZc9baB2lVXQ3Fw3SEr26U6TkXWksg&oe=6417CC3A" />
-         <p>Mstafa Fakhir</p>
+        <Avatar className='avatar' src={user?.photoURL}  />
+         <p>{user?.displayName}</p>
         </div>
          <hr />
         <S.Button>See all profiles</S.Button>
@@ -58,7 +60,8 @@ export function DropDown({dropDownStatus,setDropDownStatus, AvatarRef }) {
         Icon={AnnouncementIcon}
         />
 
-        <Item 
+        <Item        
+        onClick={logOut}
         title="Log Out"
         Icon={LogoutIcon}
         />

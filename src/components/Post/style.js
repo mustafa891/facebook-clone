@@ -1,6 +1,5 @@
 import styled from "styled-components"
 
-
 export const Post = styled.div`
 width: 500px;
 margin-top: 20px;

@@ -10,6 +10,4 @@ justify-content: space-between;
 @media(max-width: 920px) {
     justify-content: center;
 }
-
-
 `

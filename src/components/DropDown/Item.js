@@ -2,9 +2,9 @@ import React from 'react'
 import styled from 'styled-components';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
-export default function Item({title, Icon, }) {
+export default function Item({title, Icon, onClick}) {
   return (
-    <Wrapper>
+    <Wrapper onClick={onClick}>
         <div className='main'>
           <div className="icon">
               <Icon />

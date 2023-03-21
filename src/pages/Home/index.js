@@ -1,18 +1,20 @@
-import React from 'react'
-import Feed from '../../components/Feed'
-import Widgets from '../../components/Widgets'
+import React, { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+import {Feed, Widgets} from '../../components/'
 import Header from '../../layouts/Header/'
 import SideNav from "../../layouts/SideNav/"
 import * as S from './style'
 
 export default function Home() {
+
+  const navigate = useNavigate()
+  
   return (
     <>
     <Header />
-    
     <S.Container>
       <SideNav />
-        <Feed /> {/* Fedd --> store__reel --> story | message_sender */} 
+        <Feed /> 
         <Widgets />
     </S.Container>
     </>

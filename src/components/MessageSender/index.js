@@ -1,25 +1,36 @@
 import { Avatar } from '@mui/material'
-import React from 'react'
+import React, { useRef } from 'react'
+import { usePost } from '../../context/PostContext';
 import { useAuth } from '../../context/UserContext'
 import * as S from './style'
 
 export default function MessageSender() {
 
+    const {createPost, createPostWithImage, progress} = usePost();
+    const file = useRef(null);
     const { user } = useAuth()
 
-    const formHandler = (e) => {
-        e.preventDefault()
-
-        // Do something here
-                
-    }   
+    const formHandler = async (e) => {
+        e.preventDefault()        
+        const form = e.target;
+        const value = e.target.input.value;
+        
+        if(file.current.files.length > 0) {
+            await createPostWithImage(file.current.files[0], value)
+        }else {
+            createPost(value)
+        }
+        form.reset()
+        file.current.value = "";
+}   
 
   return (
-    <S.Wrapper>
+    <S.Wrapper >
+        <S.ProgressBar progress={progress} />
        <S.Top>
             <Avatar className='Avatar' src={user?.photoURL} />
             <form onSubmit={formHandler}>
-             <S.MessageInput placeholder="What`s on your mind ?" />
+             <S.MessageInput name="input" placeholder="What`s on your mind ?" />        
             </form>
         </S.Top>
         <S.Bottom>
@@ -28,9 +39,10 @@ export default function MessageSender() {
                 <span>Live Video</span>
             </S.Button>
 
-            <S.Button>
+            <S.Button htmlFor="file">
                 <img src='images/photo.png' />
                 <span>Photo/video</span>
+                <input ref={file} type="file" id="file" hidden/>
             </S.Button>
             
             <S.Button>

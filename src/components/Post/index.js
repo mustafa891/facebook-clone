@@ -11,15 +11,15 @@ import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 import { Avatar } from '@mui/material';
 
 
-export default function Post({username, timestam, text, imgSrc, profileSrc}) {
+export default function Post({username, created_at, text, imgSrc, profileSrc, className}) {
   return (
-    <S.Post>
+    <S.Post className={className}>
         <S.PostHeader>
             <div className='info'>
                 <Avatar src={profileSrc && profileSrc} />
                 <div>
                   <span>{username}</span>
-                  <p>{timestam}</p>
+                  <p>{created_at}</p>
                 </div>
             </div>
 

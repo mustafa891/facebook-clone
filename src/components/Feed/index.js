@@ -1,14 +1,40 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { StoryReel } from '../StoryReel/'
 import MessageSender from "../MessageSender/"
 import * as S from "./style"
 import Post from '../Post'
+import { usePost } from '../../context/PostContext'
+import { Fade } from 'react-reveal'
+import Footer from '../../layouts/Footer'
 
 export default function Feed() {
+
+  const {posts, getPosts} = usePost()
+
+  useEffect(() => {
+
+    getPosts();
+
+  }, [])
+
+
   return (
     <S.Feed>
       <StoryReel />
       <MessageSender />
+        
+        {posts?.map((post) => {
+        return <Post className="anim"
+         key={post.id}
+         username={post.username}
+         timestam={post.created_at}
+         text={post.text}
+         profileSrc={post.profileSrc}
+         imgSrc={post.photoURL} 
+         />
+        })}
+        <Footer />
+{/* 
       <Post
        username="NRT4"
        timestam="17h"
@@ -37,7 +63,7 @@ export default function Feed() {
        کۆرسێکى تەواو لەسەرەتا تاکو پێشکەتوو هى ماڵپەرى (udemy) فۆتۆشۆپ ٢٠٢٣ بە دیارى بۆ ئەو کاسانەى کە ١٠ هاورێى خۆى ئینفایتى گروپ بکات کە نرخى کۆرسەکە ٨٤دۆلارە تکایە ئەم کۆرسە تەنیا بۆ ئەو کاسانەى هاشتاگى تەواویان کردییە بۆ ئەوان دەبێت لە رێگاى تلیگرام بۆیان دەنێردرێت.
        "
       />
-
+ */}
     </S.Feed>
   )
 }

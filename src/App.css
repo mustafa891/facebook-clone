@@ -1,0 +1,16 @@
+.anim {
+  animation-name: cardAnim;
+  animation-duration: 1s;
+}
+
+@keyframes cardAnim {
+    from {
+        transform: scale(0.7);
+        margin-top: -15px;
+    }
+    to {
+        transform: scale(1);
+        margin-top: 20px;
+    }
+  }
+  

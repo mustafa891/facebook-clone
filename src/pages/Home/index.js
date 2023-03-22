@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import {Feed, Widgets} from '../../components/'
+import Footer from '../../layouts/Footer'
 import Header from '../../layouts/Header/'
 import SideNav from "../../layouts/SideNav/"
 import * as S from './style'

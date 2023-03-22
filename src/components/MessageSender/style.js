@@ -1,13 +1,23 @@
 import styled from "styled-components"
 
 export const Wrapper = styled.div`
+position: relative;
 padding: 13px;
 margin-top: 15px;
 border-radius: 6px;
 background: white;
 box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
-
 ` 
+
+export const ProgressBar = styled.div`
+position: absolute;
+background: #056BE1;
+border-radius: 12px;
+width: ${props => `${props.progress }%` };
+height: 3px;
+top:0;
+left:0;
+`
 
 export const Top = styled.div`
 display: flex;
@@ -38,7 +48,7 @@ flex: 1;
 
 `
 
-export const Bottom = styled.div`
+export const Bottom = styled.label`
 display: flex;
 justify-content: space-between;
 align-items: center;

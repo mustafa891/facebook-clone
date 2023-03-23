@@ -1,14 +1,14 @@
 import { Avatar } from '@mui/material'
-import React, { useRef } from 'react'
+import React, { useContext, useRef } from 'react'
 import { usePost } from '../../context/PostContext';
-import { useAuth } from '../../context/UserContext'
+import { useAuth} from '../../context/UserContext'
 import * as S from './style'
 
 export default function MessageSender() {
 
     const {createPost, createPostWithImage, progress} = usePost();
+    const {user} = useAuth()
     const file = useRef(null);
-    const { user } = useAuth()
 
     const formHandler = async (e) => {
         e.preventDefault()        
@@ -23,6 +23,7 @@ export default function MessageSender() {
         form.reset()
         file.current.value = "";
 }   
+console.log("Im from Message Sender");
 
   return (
     <S.Wrapper >

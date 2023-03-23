@@ -1,15 +1,15 @@
 import React from 'react'
 import { Avatar } from '@mui/material'
 import Item from "./Item"
-import * as S from "./style"
 import {friends} from "../../data/friends"
+import { useAuth} from '../../context/UserContext'
+import * as S from "./style"
 
 // Icons
 
 import VideoCallIcon from '@mui/icons-material/VideoCall';
 import SearchIcon from '@mui/icons-material/Search';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
-import { useAuth } from '../../context/UserContext'
 
 export default function Widgets() {
 

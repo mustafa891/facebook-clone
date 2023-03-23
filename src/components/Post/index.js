@@ -9,6 +9,8 @@ import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 
 
 import { Avatar } from '@mui/material';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 
 export default function Post({username, created_at, text, imgSrc, profileSrc, className}) {
@@ -41,7 +43,11 @@ export default function Post({username, created_at, text, imgSrc, profileSrc, cl
             </p>
             {imgSrc && 
             <div className='post__image'>
-              <img src={imgSrc} />
+              <LazyLoadImage  
+               effect="blur"
+               alt="image"
+               src={imgSrc}
+              />
             </div>
            }
         </S.PostBody>

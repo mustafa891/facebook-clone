@@ -1,22 +1,20 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { StoryReel } from '../StoryReel/'
 import MessageSender from "../MessageSender/"
 import * as S from "./style"
 import Post from '../Post'
 import { usePost } from '../../context/PostContext'
-import { Fade } from 'react-reveal'
 import Footer from '../../layouts/Footer'
+import { useAuth } from '../../context/UserContext'
 
 export default function Feed() {
 
   const {posts, getPosts} = usePost()
+  const {user} = useAuth()
 
   useEffect(() => {
-
     getPosts();
-
   }, [])
-
 
   return (
     <S.Feed>

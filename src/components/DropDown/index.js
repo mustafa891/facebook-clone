@@ -1,7 +1,6 @@
 import React, { useRef } from 'react'
 import * as S from "./style"
 import Item from "./Item"
-import { useNavigate } from 'react-router-dom';
 
 import { Avatar } from '@mui/material'
 // Icons
@@ -32,7 +31,7 @@ export function DropDown({dropDownStatus,setDropDownStatus, AvatarRef }) {
     <div className='dropdown__header'>
         <div className='profile'>
         <Avatar className='avatar' src={user?.photoURL}  />
-         <p>{user?.displayName}</p>
+         <p>{user?.email}</p>
         </div>
          <hr />
         <S.Button>See all profiles</S.Button>

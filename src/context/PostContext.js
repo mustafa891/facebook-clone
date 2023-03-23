@@ -1,9 +1,10 @@
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { createContext, useContext, useState } from "react";
 import { db, storage } from "../firebase";
-import { useAuth } from "./UserContext";
 import { v4 as uuidv4 } from 'uuid';
 import { addDoc, collection, getDocs, orderBy, query } from "firebase/firestore";
+import { resizeImage } from "../Service/Utils/resizeImage";
+import { useAuth } from "./UserContext";
 
 
 const PostContext = createContext()
@@ -17,8 +18,9 @@ const PostProvider = ({children}) => {
 
     const createPostWithImage = async (file,value) => {
         const storageRef = ref(storage, `/posts/${uuidv4()}`);
+        const resizedImage = await resizeImage(file,500, 500)
 
-        const uploadTask = uploadBytesResumable(storageRef, file, {contentType: "image/jpeg"});
+        const uploadTask = uploadBytesResumable(storageRef, resizedImage, {contentType: "image/jpeg"});
 
         uploadTask.on("state_changed",
            // progress upload  

@@ -62,7 +62,6 @@ justify-content: space-between;
 `
 export const PostBody = styled.div`
  .post__text {
-    direction: rtl;
     padding-right:  12px; 
     padding-bottom:  12px;
     
@@ -70,6 +69,10 @@ export const PostBody = styled.div`
       width: 100%;
     }
  } 
+
+ .lazy-load-image-background{
+    width: 100%;
+ }
 
  .post__image  {
      width: 500px;

@@ -13,7 +13,7 @@ export default function Feed() {
   const {user} = useAuth()
 
   useEffect(() => {
-    getPosts();
+      getPosts() 
   }, [])
 
   return (

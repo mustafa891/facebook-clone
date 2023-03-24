@@ -43,7 +43,8 @@ export default function Post({username, created_at, text, imgSrc, profileSrc, cl
             </p>
             {imgSrc && 
             <div className='post__image'>
-              <LazyLoadImage  
+              <LazyLoadImage
+              style={{width: '100%'}}  
                effect="blur"
                alt="image"
                src={imgSrc}

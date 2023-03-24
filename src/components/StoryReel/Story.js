@@ -24,6 +24,8 @@ border-radius: 12px;
 flex-direction: column;
 justify-content: space-between;
 background: ${props => `url(${props.bg})`};
+background-position: center;
+background-size: 100%;
 
 .Avatar {
   border: solid #1876F2 4px;

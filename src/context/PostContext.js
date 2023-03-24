@@ -2,7 +2,7 @@ import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { createContext, useContext, useState } from "react";
 import { db, storage } from "../firebase";
 import { v4 as uuidv4 } from 'uuid';
-import { addDoc, collection, getDocs, orderBy, query } from "firebase/firestore";
+import { addDoc, collection, getDocs, onSnapshot, orderBy, query } from "firebase/firestore";
 import { resizeImage } from "../Service/Utils/resizeImage";
 import { useAuth } from "./UserContext";
 
@@ -42,7 +42,6 @@ const PostProvider = ({children}) => {
                         created_at: new Date(),
                     })
                     setProgress(0)
-                    getPosts()
                 })
                     
             }
@@ -59,18 +58,18 @@ const PostProvider = ({children}) => {
                 photoURL: null,
                 created_at: new Date(),
             })
-            getPosts()
         }
     }
 
     const getPosts = () => {
-        getDocs(query(collection(db, "posts"), orderBy("created_at", "desc"))).then(result =>  {
-          const docs = result.docs;
-           const posts = docs.map(doc => {
-              return {...doc.data(), id : doc.id}
-             })
-             setPosts(posts)
-         })
+        onSnapshot(query(collection(db, "posts"), orderBy("created_at", "desc")), snapshot => {
+            const docs = snapshot.docs;
+            console.log(docs);
+            const posts = docs.map(doc => {
+               return {...doc.data(), id : doc.id}
+              })
+            setPosts(posts)
+        })
      }
 
     
